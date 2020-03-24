@@ -39,6 +39,10 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + 'public/index.html');
 });
 
+app.get('/test', function(req, res){
+  res.send({ hello: 'world' });
+});
+
 io.set('transports', ['websocket']);
 
 io.on('connection', function(socket){
