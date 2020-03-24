@@ -28,7 +28,9 @@ app.use (function (req, res, next) {
                 res.redirect('https://' + req.headers.host + req.url);
         }
 });
-
+app.get('/test', function(req, res){
+  res.send({ hello: 'world' });
+});
 app.use(history({
   verbose: true
 }));
@@ -39,9 +41,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + 'public/index.html');
 });
 
-app.get('/test', function(req, res){
-  res.send({ hello: 'world' });
-});
+
 
 io.set('transports', ['websocket']);
 
